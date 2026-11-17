@@ -1,7 +1,7 @@
 {
   "format": 1,
   "title": {
-    "zh": "友联插件源",
+    "zh": "学院插件源",
     "en": "Learning Academy Plugins"
   },
   "description": {
@@ -38,11 +38,11 @@
       "versions": [
         {
           "version": "0.8.0",
-          "publishTimestamp": 1794904325,
+          "publishTimestamp": 1794904662,
           "source": {
             "type": "git",
             "url": "https://github.com/juta514/dsh-learning",
-            "commit": "67bd3774f8752218f696b9e5a2eb668d88f1c8d9"
+            "commit": "a5607924a05ce3666d53ad85ed924e3f7e7f2408"
           },
           "engines": {
             "dsh": ">=0.2.2-rc.2"
