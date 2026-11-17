@@ -1,0 +1,65 @@
+# 智能助理学院 — 可装卸的学习插件，挂在友联亨达工程助理的 web profile 上。
+#
+# 只用一个插件行。装进来以后：
+#   * 工具 learn_document / learn_status，命令 /learn /learn-status
+#   * Web 页面 /academy（教材库、原文、入库、课堂、学习记录）
+#   * 教材库（lib/library.js）：上传只是入库（零模型调用），进课堂才学；
+#     同一本教材换版升版本、旧版与旧课堂都留着；卡片带简介与学完后的
+#     笔记字数、题库题数、考核均分
+#   * 课堂本身就是一个对话框：教授、学员、用户说的话逐条写
+#     stateRoot/classrooms/<id>/dialogue.jsonl，并全量重建 class-notes.md；
+#     不删减、不改写，可离线阅读与导出
+#   * 课堂授课引擎（lib/teaching.js）：教授逐章写全文备课笔记 + 知识地图 +
+#     课程包 + 独立审核，学员按原文分段自学并记笔记，逐题判分、纠错回流笔记，
+#     用户看对话指正并在结课时拍板。课堂目录里另有 professor-notes.md、
+#     knowledge-map.json、course-pack.md、student-notes.md、summary.json
+#   * 主界面侧边栏的「智能助理学院」入口
+#   * 十二条走 /api 鉴权通道的 JSON 接口
+# 不想要界面时把 academyEnabled 改成 false，工具与命令仍然可用。
+# 整包卸载：从 profile 的 dependencies 与 dsh.profile.bundles 里删掉
+# @youlian/dsh-learning，页面、按钮、接口、工具一并消失，前端源码无需改动。
+#
+# 老师与学生在插件内是两次独立的模型调用，上下文彼此隔离，也不进当前会话。
+# 写入只发生在 knowledgeRoot/learned/、stateRoot/sessions|uploads/ 和 ReMe
+# 自己的 daily 笔记里，不给模型开通用写盘工具。
+
+- insert:
+    - id: youlian-learning
+      name: '@youlian/dsh-learning'
+      config:
+        # 路径不写死：不配时插件按当前用户目录推导（~/.dsh/...），profile 里可覆盖。
+        learnedDir: learned
+        remeEndpoint: 'http://127.0.0.1:2333'
+        provider: deepseek-official
+        model: deepseek-flash
+        temperature: 0.3
+        maxTokens: 24000
+        # 全文精读引擎（v2）：分片字数、笔记倍数门限、回退次数与人工复核。
+        # 高密度文档（技术规范/军标/合规/评审）笔记有效字数必须达到原文 noteRatioTarget 倍；
+        # 校验不过只回退失败分片，超过 maxAttempts 就停下等人工，绝不跳步入库。
+        engine: v2
+        chunkChars: 1600
+        noteRatioTarget: 2
+        noteRatioFloor: 1
+        enableManualReview: true
+        maxAttempts: 3
+        maxRepairRounds: 3
+        concurrentChunks: 2
+        quizBatch: 6
+        # 抽考：默认抽题库的 15% 左右（下限 4 题、上限 examSample），按章分层、高风险≥1/3；
+        # 逐题闭卷作答后一次性批量判卷。题库同时产出「人员考核试卷」与「答案册」。
+        examPercent: 0.15
+        examSampleMin: 4
+        examSample: 30
+        # ReMe 分段上限：入库时按知识点把定稿笔记切成逐字片段写入，段越小检索越准，
+        # 但每段都是一字不改的原文切片，拼回去必须与定稿笔记完全一致。
+        memoryPartChars: 4000
+        autoCommit: true
+        maxSourceChars: 60000
+        passThreshold: 0.75
+        reindexScope: bm25
+        academyEnabled: true
+        # 抽取器默认用包内 lib/extract.py；pythonExe 留空时运行时按 python3 / python 解析。
+        pythonExe: ''
+        pyLibs: ''
+        extractorScript: ''

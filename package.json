@@ -1,0 +1,64 @@
+{
+  "name": "@youlian/dsh-learning",
+  "version": "0.8.0",
+  "private": false,
+  "type": "module",
+  "description": "智能助理学院：可装卸的 DSH 学习插件。0.8.0 换成全文精读引擎：原文切成片段账本（lib/ledger.js），确定性 Planner 排好路线（lib/plan.js），逐片精读并在每片校验覆盖、引用、数值/条款号/型号、表格行、笔记字数与说明充分性，不过就回退重拆、超限停下等人；校验通过后停在人工复核，点头才按条款出题、绑定双向溯源并写入知识库与 ReMe（lib/engine.js、lib/commit.js）。",
+  "icon": "./icon.svg",
+  "main": "lib/index.js",
+  "exports": {
+    ".": {
+      "default": "./lib/index.js"
+    },
+    "./client": {
+      "default": "./lib/client.js"
+    },
+    "./locale/en.json": "./locale/en.json",
+    "./locale/zh.json": "./locale/zh.json",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "lib/index.js",
+    "lib/pipeline.js",
+    "lib/ledger.js",
+    "lib/plan.js",
+    "lib/engine.js",
+    "lib/commit.js",
+    "lib/contract.js",
+    "lib/divergence.js",
+    "lib/classroom.js",
+    "lib/library.js",
+    "lib/teaching.js",
+    "lib/academy.js",
+    "lib/academy.html",
+    "lib/client.js",
+    "lib/extract.py",
+    "locale/",
+    "icon.svg",
+    "cordis.patch.yml",
+    "README.md"
+  ],
+  "scripts": {
+    "make-index": "node scripts/make-market-index.mjs"
+  },
+  "dsh": {
+    "engines": {
+      "dsh": ">=0.2.2-rc.2"
+    },
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": [
+        "@deepseek-ai/dsh-client-ui-renderer",
+        "@deepseek-ai/dsh-client-ui-slots",
+        "@deepseek-ai/dsh-client-ui-sidebar"
+      ]
+    }
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "license": "MIT"
+}
