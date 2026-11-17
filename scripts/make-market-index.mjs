@@ -68,14 +68,14 @@ async function main() {
 
   const index = {
     format: 1,
-    title: { zh: argOf('indexTitle', '友联插件源'), en: argOf('indexTitleEn', 'Youlian Plugins') },
-    description: { zh: '友联亨达内部 DSH 插件', en: 'Internal DSH plugins' },
+    title: { zh: argOf('indexTitle', '学院插件源'), en: argOf('indexTitleEn', 'Learning Academy Plugins') },
+    description: { zh: '智能助理学院内部 DSH 插件', en: 'Internal DSH plugins' },
     metadata: { categories: {}, labels: {}, sortKeys: {} },
     plugins: [{
       name: pkg.name,
       title: { zh: title, en: title },
       description: { zh: description, en: description },
-      author: argOf('author', '友联亨达光电'),
+      author: argOf('author', '智能助理学院'),
       metadata: { keywords: ['学习', 'BOM', '课堂', '题库'], labels: [], sortKeys: {} },
       versions: [{
         version,

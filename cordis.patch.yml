@@ -1,4 +1,4 @@
-# 智能助理学院 — 可装卸的学习插件，挂在友联亨达工程助理的 web profile 上。
+# 智能助理学院 — 可装卸的学习插件，挂在智能助理学院工程助理的 web profile 上。
 #
 # 只用一个插件行。装进来以后：
 #   * 工具 learn_document / learn_status，命令 /learn /learn-status
@@ -17,15 +17,15 @@
 #   * 十二条走 /api 鉴权通道的 JSON 接口
 # 不想要界面时把 academyEnabled 改成 false，工具与命令仍然可用。
 # 整包卸载：从 profile 的 dependencies 与 dsh.profile.bundles 里删掉
-# @youlian/dsh-learning，页面、按钮、接口、工具一并消失，前端源码无需改动。
+# dsh-learning-academy，页面、按钮、接口、工具一并消失，前端源码无需改动。
 #
 # 老师与学生在插件内是两次独立的模型调用，上下文彼此隔离，也不进当前会话。
 # 写入只发生在 knowledgeRoot/learned/、stateRoot/sessions|uploads/ 和 ReMe
 # 自己的 daily 笔记里，不给模型开通用写盘工具。
 
 - insert:
-    - id: youlian-learning
-      name: '@youlian/dsh-learning'
+    - id: learning-academy
+      name: 'dsh-learning-academy'
       config:
         # 路径不写死：不配时插件按当前用户目录推导（~/.dsh/...），profile 里可覆盖。
         learnedDir: learned

@@ -1,4 +1,4 @@
-# 智能助理学院（@youlian/dsh-learning）
+# 智能助理学院（dsh-learning-academy）
 
 给 DSH 装一条「真正学会一份资料」的链路：原文切成片段账本，逐片精读，
 九项确定性校验不过就回退重拆，人工复核点头之后才出题、绑定溯源并写入
@@ -6,7 +6,7 @@
 
 ## 插件是什么
 
-一个可整体装卸的本地插件（`@youlian/dsh-learning`，v0.8.0），Host 与客户端半边在同一个包里：
+一个可整体装卸的本地插件（`dsh-learning-academy`，v0.8.0），Host 与客户端半边在同一个包里：
 
 | 半边 | 内容 |
 |---|---|
@@ -14,10 +14,10 @@
 | Client | `lib/client.js`：左侧栏「智能助理学院」入口 + 主界面里的学院页框（`dsh.client` 声明） |
 
 - **零 npm 依赖**：只用 Node 内置模块，模型调用走 `ctx.llm`，长期记忆走 ReMe 的 HTTP 接口；
-- **数据在插件外**：课堂 `~/.dsh/learning`、知识库 `~/.dsh/youlian-knowledge`、记忆 ReMe 工作区，停用插件不丢数据；
+- **数据在插件外**：课堂 `~/.dsh/learning`、知识库 `~/.dsh/academy-knowledge`、记忆 ReMe 工作区，停用插件不丢数据；
   安装包本身**不含任何学习数据**，别人装上是从零开始的空知识库；
 - **整包装卸**：从 profile 的依赖与 `dsh.profile.bundles` 删掉它，工具、命令、页面、接口、侧栏入口一起消失。
-- **使用说明**：见 [GUIDE.md](GUIDE.md)，并已注册为运行时技能 `youlian-learning-academy`（模型按需加载）。
+- **使用说明**：见 [GUIDE.md](GUIDE.md)，并已注册为运行时技能 `learning-academy`（模型按需加载）。
 
 ### 功能一览
 
@@ -189,7 +189,7 @@ task_state/{read,notes}/…       # 中间产物（初稿、读取回执）
 
 交付（`knowledgeRoot/learned/`）：`<slug>.md`（定稿笔记 + 题库 + 双向溯源表）、
 `<slug>.quiz.json`、`<slug>.provenance.json`；同时追加 `INDEX.md` 与
-`skills/youlian-learned-library/SKILL.md`。
+`skills/learned-library/SKILL.md`。
 
 ## ReMe 里存的是全文，不是摘要
 

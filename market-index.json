@@ -2,10 +2,10 @@
   "format": 1,
   "title": {
     "zh": "友联插件源",
-    "en": "Youlian Plugins"
+    "en": "Learning Academy Plugins"
   },
   "description": {
-    "zh": "友联亨达内部 DSH 插件",
+    "zh": "智能助理学院内部 DSH 插件",
     "en": "Internal DSH plugins"
   },
   "metadata": {
@@ -15,7 +15,7 @@
   },
   "plugins": [
     {
-      "name": "@youlian/dsh-learning",
+      "name": "dsh-learning-academy",
       "title": {
         "zh": "智能助理学院",
         "en": "智能助理学院"
@@ -24,7 +24,7 @@
         "zh": "智能助理学院：可装卸的 DSH 学习插件",
         "en": "智能助理学院：可装卸的 DSH 学习插件"
       },
-      "author": "友联亨达光电",
+      "author": "智能助理学院",
       "metadata": {
         "keywords": [
           "学习",

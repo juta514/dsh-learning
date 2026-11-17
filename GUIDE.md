@@ -22,7 +22,7 @@
 ## 用已学知识回答
 
 1. 先检索：`reme_search("<主题关键词>")`，或直接读知识库：
-   `~/.dsh/youlian-knowledge/skills/youlian-product-knowledge/docs/learned/`；
+   `~/.dsh/academy-knowledge/skills/product-knowledge/docs/learned/`；
 2. 以**课堂精读笔记**为第一引用：它的每条结论都能用 `⟦S####⟧` 回查原文片段；
 3. 其它会话记的知识只作参考，引用时说明来源；与课堂笔记冲突时，以课堂笔记的原文依据为准；
 4. 课堂笔记没覆盖的问题，明确说「课堂笔记未覆盖」，不要拿旧记忆冒充本课规定；
@@ -50,7 +50,7 @@
 ## 数据在哪
 
 - 课堂与过程产物：`~/.dsh/learning/`
-- 知识库与台账：`~/.dsh/youlian-knowledge/`
+- 知识库与台账：`~/.dsh/academy-knowledge/`
 - 长期记忆：ReMe 工作区（`/daily/<日期>/learn-*`、`topic-*`、`learning-records`）
 - 上传原件：`~/.dsh/learning/uploads/`、课堂内 `original/`
 
