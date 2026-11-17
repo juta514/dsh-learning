@@ -1,0 +1,54 @@
+{
+  "format": 1,
+  "title": {
+    "zh": "友联插件源",
+    "en": "Youlian Plugins"
+  },
+  "description": {
+    "zh": "友联亨达内部 DSH 插件",
+    "en": "Internal DSH plugins"
+  },
+  "metadata": {
+    "categories": {},
+    "labels": {},
+    "sortKeys": {}
+  },
+  "plugins": [
+    {
+      "name": "@youlian/dsh-learning",
+      "title": {
+        "zh": "智能助理学院",
+        "en": "智能助理学院"
+      },
+      "description": {
+        "zh": "智能助理学院：可装卸的 DSH 学习插件",
+        "en": "智能助理学院：可装卸的 DSH 学习插件"
+      },
+      "author": "友联亨达光电",
+      "metadata": {
+        "keywords": [
+          "学习",
+          "BOM",
+          "课堂",
+          "题库"
+        ],
+        "labels": [],
+        "sortKeys": {}
+      },
+      "versions": [
+        {
+          "version": "0.8.0",
+          "publishTimestamp": 1794904325,
+          "source": {
+            "type": "git",
+            "url": "https://github.com/juta514/dsh-learning",
+            "commit": "67bd3774f8752218f696b9e5a2eb668d88f1c8d9"
+          },
+          "engines": {
+            "dsh": ">=0.2.2-rc.2"
+          }
+        }
+      ]
+    }
+  ]
+}
