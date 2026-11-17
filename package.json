@@ -36,7 +36,8 @@
     "locale/",
     "icon.svg",
     "cordis.patch.yml",
-    "README.md"
+    "README.md",
+    "GUIDE.md"
   ],
   "scripts": {
     "make-index": "node scripts/make-market-index.mjs"

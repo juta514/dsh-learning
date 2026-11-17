@@ -15,7 +15,9 @@
 
 - **零 npm 依赖**：只用 Node 内置模块，模型调用走 `ctx.llm`，长期记忆走 ReMe 的 HTTP 接口；
 - **数据在插件外**：课堂 `~/.dsh/learning`、知识库 `~/.dsh/youlian-knowledge`、记忆 ReMe 工作区，停用插件不丢数据；
+  安装包本身**不含任何学习数据**，别人装上是从零开始的空知识库；
 - **整包装卸**：从 profile 的依赖与 `dsh.profile.bundles` 删掉它，工具、命令、页面、接口、侧栏入口一起消失。
+- **使用说明**：见 [GUIDE.md](GUIDE.md)，并已注册为运行时技能 `youlian-learning-academy`（模型按需加载）。
 
 ### 功能一览
 
