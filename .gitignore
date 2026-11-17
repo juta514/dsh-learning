@@ -1,5 +1,4 @@
 node_modules/
-market-index.json
 *.log
 __pycache__/
 *.pyc
